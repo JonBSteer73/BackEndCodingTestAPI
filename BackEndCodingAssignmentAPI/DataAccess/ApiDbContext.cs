@@ -12,7 +12,7 @@ namespace BackEndCodingAssignmentAPI.DataAccess
         {
         }
 
-        public void IniitialiseDatabase()
+        public void InitialiseDatabase()
         {
             if (!ApplicationSettings.Any())
             {

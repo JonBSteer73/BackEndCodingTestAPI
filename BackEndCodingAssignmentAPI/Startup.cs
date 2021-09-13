@@ -54,7 +54,7 @@ namespace BackEndCodingAssignmentAPI
                 endpoints.MapControllers();
             });
 
-            serviceProvider.GetService<ApiDbContext>().IniitialiseDatabase();
+            serviceProvider.GetService<ApiDbContext>().InitialiseDatabase();
         }
     }
 }
