@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BackEndCodingAssignmentAPI.DataAccess;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEndCodingAssignmentAPI.Controllers
 {
@@ -11,7 +15,9 @@ namespace BackEndCodingAssignmentAPI.Controllers
     {
         private readonly ILogger<TestController> _logger;
 
-        public TestController(ILogger<TestController> logger)
+        public TestController(
+            ILogger<TestController> logger
+            )
         {
             _logger = logger;
         }
@@ -43,6 +49,12 @@ namespace BackEndCodingAssignmentAPI.Controllers
                 Property2 = Guid.NewGuid().ToString(),
                 Property3 = DateTimeOffset.UtcNow
             });
+        }
+
+        [HttpGet("RecentError")]
+        public async Task<ActionResult> GetMostRecentErrorAsync()
+        {
+            return NotFound();
         }
     }
 }
